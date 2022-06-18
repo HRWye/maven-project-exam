@@ -1,23 +1,30 @@
 package ru.itmo.objmodels;
 
-public class Climber {
+import jakarta.persistence.*;
+import lombok.*;
+import  java.lang.String;
+
+@EqualsAndHashCode(callSuper = true)
+@Entity
+@Getter
+@Setter
+@ToString(callSuper = true)
+@NonNull
+@RequiredArgsConstructor
+
+public class Climber extends BaseId {
     private String name;
     private String address;
 
-
-    public void setName(String name) {
-        if (name==null||name.length()<3){throw new IllegalArgumentException("Имя альпиниста должно содержать не менее 3 символов");}
-        this.name = name;
-    }
-    public void setAddress(String address) {
-        if (address==null||address.length()<5){throw new IllegalArgumentException("Адрес проживания альпиниста должен содержать не менее 5 символов");}
-        this.address = address;
-    }
 
     public Climber(String name, String address) {
         setName(name);
         setAddress(address);
     }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @Setter
+    private Group groupList;
 
     public String getNameAndAddress(){
         return name + ", " + address;

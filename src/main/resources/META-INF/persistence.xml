@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              version="3.0"
              xsi:schemalocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
 
 
-    <persistence-unit name="orm" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="hrw" transaction-type="RESOURCE_LOCAL">
 
         <class>entity.Climber</class>
         <class>entity.Mountain</class>
-        <class>entity.Party</class>
+        <class>entity.Group</class>
 
 
         <properties>
 
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/DBProject"/>
-            <property name="jakarta.persistence.jdbc.user" value="userName"/>
-            <property name="jakarta.persistence.jdbc.password" value="anas2210"/>
+            <property name="jakarta.persistence.jdbc.user" value="HRW"/>
+            <property name="jakarta.persistence.jdbc.password" value="hrw54"/>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 
             <property name="eclipselink.logging.level" value="FINE"/>
@@ -26,6 +27,10 @@
             <property name="eclipselink.connection-pool.default.max" value="10"/>
 
             <property name="eclipselink.cache.shared.default" value="false"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
 
         </properties>
     </persistence-unit>

@@ -1,6 +1,6 @@
-/*import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;*/
+import jakarta.persistence.Persistence;
 
 import ru.itmo.objmodels.Climber;
 import ru.itmo.objmodels.Group;
@@ -24,5 +24,15 @@ public class Application {
         group1.addClimber(climber1,climber2,climber3, climber1);
         group2.addClimber(climber4,climber5);
         group3.addClimber(climber6,climber7);
+
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("hrw");
+
+        EntityManager manager = factory.createEntityManager();
+
+        manager.getTransaction().begin();
+        manager.persist(group1);
+        manager.persist(group2);
+        manager.persist(group3);
+        manager.getTransaction().commit();
     }
 }

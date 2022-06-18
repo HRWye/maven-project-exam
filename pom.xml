@@ -7,10 +7,10 @@
     <packaging>pom</packaging>
 
     <groupId>org.example</groupId>
-    <artifactId>course4</artifactId>
+    <artifactId>maven-project-exam</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>course4</name>
-    <description>Course project 4</description>
+    <name>maven-project-exam</name>
+    <description>Course work 4</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -44,10 +44,20 @@
             <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
-
-
 
 
 </project>

@@ -1,7 +1,23 @@
 package ru.itmo.objmodels;
 
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Getter
+@Setter
+@NonNull
+@NoArgsConstructor
+@ToString(callSuper = true)
+
 public class Group {
-    private final Mountain mountain;
+    @Id
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "mountain_id")
+    private Mountain mountain;
     int i;
 
     public Group(Mountain mountain) {
